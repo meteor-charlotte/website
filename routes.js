@@ -9,6 +9,9 @@ Router.map(function() {
       groupName : Meteor.settings.public.meetup.group_name,
       groupInfo : Meteor.settings.public.meetup.group_info,
       sponsors : Meteor.settings.public.sponsors
+    },
+    onAfterAction: function() {
+      GAnalytics.pageview('/');
     }
   });
 
@@ -22,6 +25,7 @@ Router.map(function() {
       previousMeetups: Meetups.find({dateTime : {$lt : new Date()} }, {sort: {dateTime: -1}})
     },
     onAfterAction: function() {
+      GAnalytics.pageview('/meetups');
       SEO.set({
         title: 'Meetups | ' + SEO.settings.title
       });
@@ -45,6 +49,7 @@ Router.map(function() {
     },
     onAfterAction: function() {
       if(this.ready()) {
+        GAnalytics.pageview('/meetups/' + this.params._id);
         SEO.set({
           title: this.data().meetup.title + ' | Meetups | ' + SEO.settings.title
         });
@@ -70,6 +75,7 @@ Router.map(function() {
       }
     },
     onAfterAction: function() {
+      GAnalytics.pageview('/topics');
       SEO.set({
         title: 'Topics | ' + SEO.settings.title
       });
@@ -88,6 +94,7 @@ Router.map(function() {
     },
     onAfterAction: function() {
       if(this.ready()) {
+        GAnalytics.pageview('/topics/' + this.params._id);
         SEO.set({
           title: this.data().topic.title + ' | Topics | ' + SEO.settings.title
         });
@@ -102,8 +109,13 @@ Router.map(function() {
     },
     data: {
       topics: Presentations.find({})
+    },
+    onAfterAction: function() {
+      GAnalytics.pageview('/presentations');
+      SEO.set({
+        title: 'Presentations | ' + SEO.settings.title
+      });
     }
-
   });
   this.route('presentationDetail', {
     path: '/presentations/:_id',
@@ -115,6 +127,14 @@ Router.map(function() {
         presentation: Presentations.findOne({_id: this.params._id}),
         comments: Comments.find({parentType: 'presentation', parentId: this.params._id}, {sort: { createdAt: -1 }})
       };
+    },
+    onAfterAction: function() {
+      if (this.ready()) {
+        GAnalytics.pageview('/presentations/' + this.params._id);
+        SEO.set({
+          title: this.data().presentation.name + ' | Presentations | ' + SEO.settings.title
+        });
+      }
     }
   });
 
@@ -127,6 +147,7 @@ Router.map(function() {
       members: Meteor.users.find({}, {sort: {'profile.points': -1}})
     },
     onAfterAction: function() {
+      GAnalytics.pageview('/members');
       SEO.set({
         title: 'Members | ' + SEO.settings.title
       });
@@ -144,6 +165,7 @@ Router.map(function() {
     },
     onAfterAction: function() {
       if(this.ready()) {
+        GAnalytics.pageview('/members/' + this.params._id);
         SEO.set({
           title: this.data().member.profile.name + ' | Members | ' + SEO.settings.title
         });
@@ -155,7 +177,7 @@ Router.map(function() {
     path: '/meteorday',
     where: 'server',
     action: function() {
-      this.response.writeHead(301, {Location: 'http://www.meetup.com/Meteor-Las-Vegas/events/212820662/'});
+      this.response.writeHead(301, {Location: 'http://www.meetup.com/Meteor-Charlotte/events/211968732/'});
       this.response.end();
     }
   });
