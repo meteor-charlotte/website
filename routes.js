@@ -177,6 +177,7 @@ Router.map(function() {
     path: '/meteorday',
     where: 'server',
     action: function() {
+      GAnalytics.pageview('/meteorday');
       this.response.writeHead(301, {Location: 'http://www.meetup.com/Meteor-Charlotte/events/211968732/'});
       this.response.end();
     }
