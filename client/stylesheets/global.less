@@ -34,6 +34,21 @@
   }
 }
 
+.memberPhoto {
+  .img-responsive(block);
+  .img-circle;
+  width: 100px;
+  height: 100px;
+  background-position: 50% 50%;
+  background-size: 150px;
+  &.small {
+    width: 30px;
+    height: 30px;
+    background-size: 40px;
+    display: inline-block;
+  }
+}
+
 footer {
   margin-top: 48px;
   border-top: 1px solid @gray-lighter;
