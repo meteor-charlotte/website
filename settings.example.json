@@ -5,7 +5,7 @@
       "oauth_key" : "<production_meetup_consumer_key>",
       "oauth_secret" : "<production_meetup_consumer_secret>",
       "api_key" : "<meetup_api_key>",
-      "group_urlname" : "Meteor-Las-Vegas"
+      "group_urlname" : "Meteor-Charlotte"
     }
   },
   "development" : {
@@ -13,36 +13,39 @@
       "oauth_key" : "<development_meetup_consumer_key>",
       "oauth_secret" : "<development_meetup_consumer_secret>",
       "api_key" : "<meetup_api_key>",
-      "group_urlname" : "Meteor-Las-Vegas"
+      "group_urlname" : "Meteor-Charlotte"
     }
   },
   "public" : {
     "meetup" : {
-      "group_name" : "Meteor Vegas",
-      "group_urlname" : "Meteor-Las-Vegas",
-      "group_info" : "We are a group of Meteor.js enthusiasts who meet twice a month in Las Vegas, NV"
+      "group_name" : "Meteor Charlotte",
+      "group_urlname" : "Meteor-Charlotte",
+      "group_info" : "We are a group of Meteor.js enthusiasts who meet once a month in Charlotte, NC"
     },
     "links" : {
-      "meetup": "http://www.meetup.com/Meteor-Las-Vegas/",
-      "twitter": "https://twitter.com/MeteorVegas",
-      "github": "https://github.com/meteor-vegas"
+      "meetup": "http://www.meetup.com/Meteor-Charlotte/",
+      "twitter": "https://twitter.com/MeteorCharlotte",
+      "github": "https://github.com/meteor-charlotte"
     },
     "sponsors" : [
       {
-        "title" : "Differential",
-        "url" : "http://differential.io",
-        "image" : "/sponsors/differential.png"
+        "title" : "Xorcode",
+        "url" : "http://www.xorcode.com/",
+        "image" : "/sponsors/xorcode.png"
       },
       {
-        "title" : "Modulus",
-        "url" : "http://modulus.io",
-        "image" : "/sponsors/modulus.png"
+        "title" : "Classic Graphics",
+        "url" : "https://knowclassic.com/",
+        "image" : "/sponsors/classic.png"
       },
       {
-        "title" : "#VegasTech",
-        "url" : "http://vegastech.com",
-        "image" : "/sponsors/vegastech.png"
+        "title" : "Command Partners",
+        "url" : "http://commandpartners.com/",
+        "image" : "/sponsors/cp.png"
       }
-    ]
+    ],
+    "ga" : {
+      "account" : "UA-56062803-1"
+    }
   }
 }
